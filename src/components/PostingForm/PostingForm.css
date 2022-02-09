@@ -1,0 +1,8 @@
+.form__posting label {
+  display: block;
+  margin-top: 8px;
+}
+
+.form__posting button {
+  margin: 8px 0;
+}
