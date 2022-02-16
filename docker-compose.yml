@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ".:/app"
+    env_file: .env
+    container_name: frontend

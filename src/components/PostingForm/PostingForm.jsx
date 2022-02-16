@@ -10,9 +10,9 @@ const PostingForm = (props) => {
     e.preventDefault();
     const data = new FormData(e.target);
 
-    fetch(config.api_base, {
+    fetch(config.api_ads, {
       method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
+      // headers: { "Content-Type": "form-data" },
       body: data,
     })
       .then((res) => res.json())

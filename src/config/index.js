@@ -1,5 +1,5 @@
 const config = {
-  api_base: "http://localhost:4040/api/ads",
+  api_ads: `${process.env.REACT_APP_API_BASE}/api/ads`,
 };
 
 export default config;

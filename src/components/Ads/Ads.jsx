@@ -50,6 +50,8 @@ const Ads = (props) => {
   const [sortType, setSortType] = useState(SORT.AD_ID_DESC);
 
   useEffect(() => {
+    if (!ads.length) return;
+
     switch (sortType) {
       case SORT.PRICE_ASC: {
         const copyAds = [...ads];
