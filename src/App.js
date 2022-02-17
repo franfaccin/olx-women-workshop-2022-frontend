@@ -3,6 +3,9 @@ import PostingForm from "./components/PostingForm/PostingForm";
 import { useEffect, useState } from "react";
 import Ads from "./components/Ads/Ads";
 import config from "./config";
+import { Divider } from "antd";
+import Title from "antd/lib/typography/Title";
+import Layout, { Content, Footer, Header } from "antd/lib/layout/layout";
 
 function App() {
   const [ads, setAds] = useState([]);
@@ -33,16 +36,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Mini OLX</h1>
-      </header>
-      <main>
-        <PostingForm onPostAd={handleOnPostAd} />
-        <hr />
-        <Ads ads={ads} onDeleteAd={handleOnDelete} />
-      </main>
-    </div>
+    <Layout>
+      <Header>
+        <Title className="header__title">Mini OLX</Title>
+      </Header>
+      <Content>
+        <div className="App">
+          <header className="App-header"></header>
+          <main>
+            <PostingForm onPostAd={handleOnPostAd} />
+            <Divider />
+            <Ads ads={ads} onDeleteAd={handleOnDelete} />
+          </main>
+        </div>
+      </Content>
+      <Footer>Franciele @ OLX Workshop ©2022</Footer>
+    </Layout>
   );
 }
 

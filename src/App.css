@@ -9,3 +9,9 @@
 .App-header {
   text-align: center;
 }
+
+h1.header__title {
+  text-align: center;
+  color: white;
+  margin: 8px 0;
+}
