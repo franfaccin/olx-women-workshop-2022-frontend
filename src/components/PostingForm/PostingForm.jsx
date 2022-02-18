@@ -3,7 +3,7 @@ import config from "../../config";
 import "./PostingForm.css";
 
 const PostingForm = (props) => {
-  const { onPostAdd: onPostAd = () => {} } = props;
+  const { onPostAd = () => {} } = props;
   const formRef = useRef(null);
 
   const handleOnSubmit = (e) => {

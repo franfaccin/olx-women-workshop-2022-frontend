@@ -46,57 +46,58 @@ const SortButton = ({ onSortBy = () => {} }) => {
 
 const Ads = (props) => {
   const { ads = [], onDeleteAd = () => {} } = props;
-  const [sortedAds, setSortedAds] = useState(ads);
-  const [sortType, setSortType] = useState(SORT.AD_ID_DESC);
+  // const [sortedAds, setSortedAds] = useState(ads);
+  // const [sortType, setSortType] = useState(SORT.AD_ID_DESC);
 
-  useEffect(() => {
-    if (!ads.length) return;
+  // useEffect(() => {
+  //   if (!ads.length) return;
 
-    switch (sortType) {
-      case SORT.PRICE_ASC: {
-        const copyAds = [...ads];
-        copyAds.sort((a, b) => {
-          if (a.price < b.price) {
-            return -1;
-          } else if (a.price > b.price) {
-            return 1;
-          } else {
-            return 0;
-          }
-        });
-        setSortedAds(copyAds);
-        break;
-      }
-      case SORT.AD_ID_DESC:
-      default: {
-        const copyAds = [...ads];
-        copyAds.sort((a, b) => {
-          if (a.id < b.id) {
-            return -1;
-          } else if (a.id > b.id) {
-            return 1;
-          } else {
-            return 0;
-          }
-        });
-        setSortedAds(copyAds);
-        break;
-      }
-    }
-  }, [sortType, ads]);
+  //   switch (sortType) {
+  //     case SORT.PRICE_ASC: {
+  //       const copyAds = [...ads];
+  //       copyAds.sort((a, b) => {
+  //         if (a.price < b.price) {
+  //           return -1;
+  //         } else if (a.price > b.price) {
+  //           return 1;
+  //         } else {
+  //           return 0;
+  //         }
+  //       });
+  //       setSortedAds(copyAds);
+  //       break;
+  //     }
+  //     case SORT.AD_ID_DESC:
+  //     default: {
+  //       const copyAds = [...ads];
+  //       copyAds.sort((a, b) => {
+  //         if (a.id < b.id) {
+  //           return -1;
+  //         } else if (a.id > b.id) {
+  //           return 1;
+  //         } else {
+  //           return 0;
+  //         }
+  //       });
+  //       setSortedAds(copyAds);
+  //       break;
+  //     }
+  //   }
+  // }, [sortType, ads]);
 
-  const handleOnSortBy = (sortType) => {
-    setSortType(sortType);
-  };
+  // const handleOnSortBy = (sortType) => {
+  //   setSortType(sortType);
+  // };
 
   return (
     <>
       <h2>All Ads</h2>
 
-      <SortButton onSortBy={handleOnSortBy} />
+      {/* <SortButton onSortBy={handleOnSortBy} /> */}
 
       <ul className="list__ads">
-        {sortedAds?.map((ad) => {
+        {ads?.map((ad) => {
+          // {sortedAds?.map((ad) => {
           return (
             <li key={ad.id}>
               <Card
