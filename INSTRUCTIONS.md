@@ -172,8 +172,29 @@ services:
       - ".:/app"
     env_file: .env
     container_name: frontend
-  #backend:
-  #
+
+  backend:
+    image: aipms/projects:mini-olx-backend
+    depends_on:
+      - database
+    environment:
+      WAIT_HOSTS: database:3306
+    ports:
+      - 4040:4040
+
+  database:
+    image: mysql:5.7.22
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    container_name: mini-olx-db
+    ports:
+      - 33061:3306
+    volumes:
+      - mini-olx-data:/var/lib/mysql
+
+volumes:
+  mini-olx-data:
 ```
 
 Your folder structure now should be looking something like this:
