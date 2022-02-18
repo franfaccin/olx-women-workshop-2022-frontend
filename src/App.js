@@ -38,7 +38,7 @@ function App() {
         <h1>Mini OLX</h1>
       </header>
       <main>
-        <PostingForm onPostAdd={handleOnPostAd} />
+        <PostingForm onPostAd={handleOnPostAd} />
         <hr />
         <Ads ads={ads} onDeleteAd={handleOnDelete} />
       </main>
