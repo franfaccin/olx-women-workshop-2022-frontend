@@ -8,7 +8,7 @@ import "./PostingForm.css";
 
 const PostingForm = (props) => {
   const { onPostAd = () => {} } = props;
-  const formRef = useRef(null);
+  const [form] = Form.useForm();
 
   const handleOnSubmit = (values) => {
     const data = new FormData();
@@ -24,13 +24,14 @@ const PostingForm = (props) => {
       .then((res) => res.json())
       .then((response) => {
         onPostAd();
-        formRef.current.reset();
+        form.resetFields();
       })
       .catch(console.error);
   };
 
   return (
     <Form
+      form={form}
       onFinish={handleOnSubmit}
       className="form__posting"
       name="ad-post"

@@ -726,7 +726,6 @@ const PostingForm = (props) => {
 
     fetch(config.api_ads, {
       method: "POST",
-      // headers: { "Content-Type": "form-data" },
       body: data,
     })
       .then((res) => res.json())
