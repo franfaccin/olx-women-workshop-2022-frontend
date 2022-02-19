@@ -8,9 +8,9 @@
 - Your terminal of choice
 - Your favorite text editor, we recommend [VS Code](https://code.visualstudio.com) for this workshop
 
-## Development
+# Development
 
-### Initial Setup
+## Initial Setup
 
 We'll start by using [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) to quickly bootstrap our single-page application:
 
@@ -42,9 +42,9 @@ and you can see your application running at [http://localhost:3000/](http://loca
 
 <!-- TODO SCREENSHOT OF BOILERPLATE -->
 
-### First steps
+## First steps
 
-#### Clean up
+### Clean up
 
 Let's clean the React boilerplate in `App.js`.
 
@@ -121,7 +121,7 @@ and let's also clean up the `App.css` file and remove the styles we don't need a
 -}
 ```
 
-#### New configuration and Dockerfile
+### New configuration and Dockerfile
 
 Let's also create a configuration file to be used later by our project. Create a new folder under `src/` called `config` and inside it create a new file called `index.js` with the following content:
 
@@ -171,7 +171,7 @@ services:
     volumes:
       - ".:/app"
     env_file: .env
-    container_name: frontend
+    container_name: mini-olx-frontend
 
   backend:
     image: aipms/projects:mini-olx-backend
@@ -181,6 +181,7 @@ services:
       WAIT_HOSTS: database:3306
     ports:
       - 4040:4040
+    container_name: mini-olx-backend
 
   database:
     image: mysql:5.7.22
@@ -237,7 +238,7 @@ Wait for the dependencies to load and your page should be looking something like
 
 <!-- TODO SCREENSHOT AFTER CLEANUP -->
 
-### Posting Form
+## Posting Form
 
 Now it is time to create our posting form.
 
@@ -367,7 +368,7 @@ Now it should be looking something like this 👇. Try posting some ads!
 
 <!-- TODO SCREENSHOT POSTING FORM UGLY -->
 
-### Ads listing
+## Ads listing
 
 Next, we need to show all the ads we have created so far. Let's start by creating an `Ads` component to display all of our ads.
 
@@ -601,11 +602,11 @@ Now your page should be looking something like this and is fully functional!
 
 If you've reached here, congratulations! You have a working single-page application! 🎉
 
-## Make the page pretty
+# Make the page pretty
 
 Our SPA is functional but is also super ugly at this point! Let's use Ant Design and make it prettier!
 
-### Page Layout
+## Page Layout
 
 Let's start by adjusting the page layout styles in `App.js`.
 
@@ -697,7 +698,7 @@ Now your page should be starting to shape up better:
 
 <!-- TODO SCREENSHOT LAYOUT -->
 
-### Posting Form Layout
+## Posting Form Layout
 
 1. Change the following on Posting Form to start using form elements from Ant Design. We'll also update how we post our ad to follow the callback signature from `<Form/>` from Ant:
 
@@ -815,7 +816,7 @@ Now your Posting Form should be looking like this:
 
 <!-- TODO SCREENSHOT ONLY POSTING FORM PRETTY -->
 
-### Listing Layout
+## Listing Layout
 
 Finally, let's make our listing results more pretty.
 
@@ -905,7 +906,7 @@ After all these changes, your page should be looking beautiful! ✨
 
 ---
 
-## Next steps
+# Next steps
 
 Now enjoy your page! Maybe try to make it more your own and update the styles.
 

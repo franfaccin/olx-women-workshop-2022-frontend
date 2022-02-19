@@ -9,7 +9,7 @@ services:
     volumes:
       - ".:/app"
     env_file: .env
-    container_name: frontend
+    container_name: mini-olx-frontend
 
   backend:
     image: aipms/projects:mini-olx-backend
@@ -19,6 +19,7 @@ services:
       WAIT_HOSTS: database:3306
     ports:
       - 4040:4040
+    container_name: mini-olx-backend
 
   database:
     image: mysql:5.7.22
