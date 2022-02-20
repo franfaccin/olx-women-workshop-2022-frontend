@@ -26,8 +26,6 @@ and move to the newly created folder
 cd mini-olx-frontend
 ```
 
-<!-- TODO EXPLAIN FOLDER STRUCTURE -->
-
 At the root of the project, let's create a `.env` file to hold our project variables. This will come in hand later. You can read more about it [here](- https://create-react-app.dev/docs/adding-custom-environment-variables/#adding-development-environment-variables-in-env).
 
 ```sh
@@ -42,7 +40,7 @@ npm start
 
 and you can see your application running at [http://localhost:3000/](http://localhost:3000/).
 
-<!-- TODO SCREENSHOT OF BOILERPLATE -->
+![](docs/images/01-create-react-app-page.png)
 
 ## First steps
 
@@ -52,7 +50,7 @@ and you can see your application running at [http://localhost:3000/](http://loca
 
 ```diff
 -import logo from './logo.svg';
--import './App.css';
+import './App.css';
 
 // rest of the code ...
 
@@ -81,15 +79,15 @@ and you can see your application running at [http://localhost:3000/](http://loca
 ```diff
 .App {
 +  max-width: 1200px;
-+  padding: 0 16px 16px;
++  padding: 0 16px 16px 16px;
 +  margin: auto;
 -  text-align: center;
 -}
 
--.App-logo {
--  height: 40vmin;
--  pointer-events: none;
--}
+- .App-logo {
+-   height: 40vmin;
+-   pointer-events: none;
+- }
 -
 -@media (prefers-reduced-motion: no-preference) {
 -  .App-logo {
@@ -159,8 +157,6 @@ CMD ["npm", "start"]
 
 3. And next, create also in the root folder, create a new file called `docker-compose.yml` and add the following content:
 
-<!-- TODO ADD BACKEND IMAGE TO COMPOSE -->
-
 ```yml
 version: "3.2"
 services:
@@ -175,16 +171,6 @@ services:
     env_file: .env
     container_name: mini-olx-frontend
 
-  backend:
-    image: aipms/projects:mini-olx-backend
-    depends_on:
-      - database
-    environment:
-      WAIT_HOSTS: database:3306
-    ports:
-      - 4040:4040
-    container_name: mini-olx-backend
-
   database:
     image: mysql:5.7.22
     environment:
@@ -195,6 +181,16 @@ services:
       - 33061:3306
     volumes:
       - mini-olx-data:/var/lib/mysql
+
+  backend:
+    image: aipms/projects:mini-olx-backend
+    depends_on:
+      - database
+    environment:
+      WAIT_HOSTS: database:3306
+    ports:
+      - 4040:4040
+    container_name: mini-olx-backend
 
 volumes:
   mini-olx-data:
@@ -238,7 +234,7 @@ docker-compose up
 
 Wait for the dependencies to load and your page should be looking something like this:
 
-<!-- TODO SCREENSHOT AFTER CLEANUP -->
+![](docs/images/02-page-cleanup.png)
 
 ## Posting Form
 
@@ -368,7 +364,7 @@ function App() {
 
 Now it should be looking something like this 👇. Try posting some ads!
 
-<!-- TODO SCREENSHOT POSTING FORM UGLY -->
+![](docs/images/03-posting-form.png)
 
 ## Ads listing
 
@@ -600,7 +596,7 @@ function App() {
 
 Now your page should be looking something like this and is fully functional!
 
-<!-- TODO ADD IMAGE WITH LISTING -->
+![](docs/images/04-ads.png)
 
 If you've reached here, congratulations! You have a working single-page application! 🎉
 
@@ -705,7 +701,10 @@ Now your page should be starting to shape up better:
 1. Change the following on Posting Form to start using form elements from Ant Design. We'll also update how we post our ad to follow the callback signature from `<Form/>` from Ant:
 
 ```diff
-import Title from "antd/lib/typography/Title";
++import { UploadOutlined } from "@ant-design/icons";
++import { Button, Form, Input, InputNumber, Upload } from "antd";
++import TextArea from "antd/lib/input/TextArea";
++import Title from "antd/lib/typography/Title";
 import React, { useRef } from "react";
 import config from "../../config";
 import "./PostingForm.css";
@@ -782,7 +781,7 @@ const PostingForm = (props) => {
 +        name="price"
 +        rules={[{ required: true, message: "Please provide a Price" }]}
 +      >
-+        <InputNumber addonBefore="€" name="description" />
++        <InputNumber addonBefore="€" name="price" />
 +      </Form.Item>
 +      <Form.Item
 +        label="Description"
@@ -819,7 +818,7 @@ const PostingForm = (props) => {
 
 Now your Posting Form should be looking like this:
 
-<!-- TODO SCREENSHOT ONLY POSTING FORM PRETTY -->
+![](docs/images/05-posting-form-pretty.png)
 
 ## Listing Layout
 
@@ -849,10 +848,10 @@ Finally, let's make our listing results more pretty.
 ```diff
 import React, { useEffect, useState } from "react";
 +import { Button, Card, Dropdown, Menu, Space } from "antd";
-import { DeleteFilled, DownOutlined } from "@ant-design/icons";
-import "./Ads.css";
 +import Title from "antd/lib/typography/Title";
 +import Layout from "antd/lib/layout/layout";
+import { DeleteFilled, DownOutlined } from "@ant-design/icons";
+import "./Ads.css";
 
 const { Meta } = Card;
 
@@ -907,7 +906,7 @@ const Ads = (props) => {
 
 After all these changes, your page should be looking beautiful! ✨
 
-<!-- TODO SCREENSHOT FINAL RESULT -->
+![](docs/images/06-final-page.png)
 
 ---
 
@@ -915,6 +914,6 @@ After all these changes, your page should be looking beautiful! ✨
 
 Now enjoy your page! Maybe try to make it more your own and update the styles.
 
-And get ready for the next workshop, where we'll on developing the Backend where all the information in this page is coming from!
+And get ready for the next workshop, where we'll be developing the Backend where all the information in this page is coming from!
 
 Cya! 👋
