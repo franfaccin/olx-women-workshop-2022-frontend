@@ -712,7 +712,8 @@ import "./PostingForm.css";
 
 const PostingForm = (props) => {
   const { onPostAdd = () => {} } = props;
-  const formRef = useRef(null);
+-  const formRef = useRef(null);
++  const [form] = Form.useForm();
 
 +  const handleOnSubmit = (values) => {
 
@@ -732,7 +733,8 @@ const PostingForm = (props) => {
       .then((res) => res.json())
       .then((response) => {
         onPostAdd();
-        formRef.current.reset();
+-       formRef.current.reset();
++       form.resetFields();
       })
       .catch(console.error);
   };
@@ -760,6 +762,7 @@ const PostingForm = (props) => {
 -    </form>
 
 +    <Form
++      form={form}
 +      onFinish={handleOnSubmit}
 +      className="form__posting"
 +      name="ad-post"
