@@ -1,7 +1,5 @@
 # OLX Women Workshop - Frontend
 
-[[_TOC_]]
-
 ## Requirements
 
 - [Node v13+](https://nodejs.org/en/)
@@ -82,7 +80,7 @@ import './App.css';
 +  padding: 0 16px 16px 16px;
 +  margin: auto;
 -  text-align: center;
--}
+}
 
 - .App-logo {
 -   height: 40vmin;
@@ -694,7 +692,7 @@ function App() {
 
 Now your page should be starting to shape up better:
 
-![](docs/images/05a-app-pretty.png)
+<!-- TODO SCREENSHOT LAYOUT -->
 
 ## Posting Form Layout
 
