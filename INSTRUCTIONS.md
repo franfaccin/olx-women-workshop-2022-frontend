@@ -1,7 +1,5 @@
 # OLX Women Workshop - Frontend
 
-[[_TOC_]]
-
 ## Requirements
 
 - [Node v13+](https://nodejs.org/en/)
@@ -82,7 +80,7 @@ import './App.css';
 +  padding: 0 16px 16px 16px;
 +  margin: auto;
 -  text-align: center;
--}
+}
 
 - .App-logo {
 -   height: 40vmin;
