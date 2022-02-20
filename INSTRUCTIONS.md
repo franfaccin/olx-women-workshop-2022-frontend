@@ -1,5 +1,7 @@
 # OLX Women Workshop - Frontend
 
+[[_TOC_]]
+
 ## Requirements
 
 - [Node v13+](https://nodejs.org/en/)
@@ -46,7 +48,7 @@ and you can see your application running at [http://localhost:3000/](http://loca
 
 ### Clean up
 
-Let's clean the React boilerplate in `App.js`.
+1. Let's clean the React boilerplate in `App.js`.
 
 ```diff
 -import logo from './logo.svg';
@@ -74,7 +76,7 @@ Let's clean the React boilerplate in `App.js`.
     </div>
 ```
 
-and let's also clean up the `App.css` file and remove the styles we don't need and add some new.
+2. and let's also clean up the `App.css` file and remove the styles we don't need and add some new.
 
 ```diff
 .App {
@@ -123,7 +125,7 @@ and let's also clean up the `App.css` file and remove the styles we don't need a
 
 ### New configuration and Dockerfile
 
-Let's also create a configuration file to be used later by our project. Create a new folder under `src/` called `config` and inside it create a new file called `index.js` with the following content:
+1. Let's also create a configuration file to be used later by our project. Create a new folder under `src/` called `config` and inside it create a new file called `index.js` with the following content:
 
 ```js
 const config = {
@@ -133,7 +135,7 @@ const config = {
 export default config;
 ```
 
-Next, we'll create a configuration to be able to run our project on Docker alongside our backend. For that, first, in the root of your project, create a document called `Dockerfile` (no extension) with the following content:
+2. Next, we'll create a configuration to be able to run our project on Docker alongside our backend. For that, first, in the root of your project, create a document called `Dockerfile` (no extension) with the following content:
 
 ```docker
 FROM node:16.3.0-alpine
@@ -155,7 +157,7 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
-And next, create also in the root folder, create a new file called `docker-compose.yml` and add the following content:
+3. And next, create also in the root folder, create a new file called `docker-compose.yml` and add the following content:
 
 <!-- TODO ADD BACKEND IMAGE TO COMPOSE -->
 
@@ -228,7 +230,7 @@ Your folder structure now should be looking something like this:
 └── Dockerfile
 ```
 
-Now let's run our project from Docker. If you still had your previous `npm start` running, close it (`ctr/cmd + c` in the terminal). Next, run:
+4. Now let's run our project from Docker. If you still had your previous `npm start` running, close it (`ctr/cmd + c` in the terminal). Next, run:
 
 ```sh
 docker-compose up
@@ -242,7 +244,7 @@ Wait for the dependencies to load and your page should be looking something like
 
 Now it is time to create our posting form.
 
-In the `src/` folder, let's create a folder called `components` and inside it another one called `PostingForm`. Inside the last one, create 2 documents: `PostingForm.jsx` and `PostingForm.css`. Your folder structure now should looks like this:
+1. In the `src/` folder, let's create a folder called `components` and inside it another one called `PostingForm`. Inside the last one, create 2 documents: `PostingForm.jsx` and `PostingForm.css`. Your folder structure now should looks like this:
 
 ```diff
  .
@@ -276,7 +278,7 @@ In the `src/` folder, let's create a folder called `components` and inside it an
  └── Dockerfile
 ```
 
-Now, on `PostingForm.jsx` add the following content:
+2. Now, on `PostingForm.jsx` add the following content:
 
 ```jsx
 import React, { useRef } from "react";
@@ -330,7 +332,7 @@ const PostingForm = (props) => {
 export default PostingForm;
 ```
 
-And on `PostingForm.css` add:
+3. And on `PostingForm.css` add:
 
 ```css
 .form__posting label {
@@ -604,7 +606,7 @@ If you've reached here, congratulations! You have a working single-page applicat
 
 # Make the page pretty
 
-Our SPA is functional but is also super ugly at this point! Let's use Ant Design and make it prettier!
+Our SPA is functional but it is also super ugly at this point! Let's use Ant Design and make it prettier!
 
 ## Page Layout
 
