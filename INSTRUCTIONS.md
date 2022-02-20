@@ -694,7 +694,7 @@ function App() {
 
 Now your page should be starting to shape up better:
 
-<!-- TODO SCREENSHOT LAYOUT -->
+![](docs/images/05a-app-pretty.png)
 
 ## Posting Form Layout
 
