@@ -583,7 +583,7 @@ function App() {
         <h1>Mini OLX</h1>
       </header>
       <main>
-+       <PostingForm onPostAdd={handleOnPostAd} />
++       <PostingForm onPostAd={handleOnPostAd} />
         <hr />
         <Ads ads={ads} onDeleteAd={handleOnDelete} />
       </main>
@@ -655,7 +655,7 @@ function App() {
 +        <div className="App">
 -          <header className="App-header"></header>
            <main>
-             <PostingForm onPostAdd={handleOnPostAd} />
+             <PostingForm onPostAd={handleOnPostAd} />
 -            <hr />
 +            <Divider />
              <Ads ads={ads} onDeleteAd={handleOnDelete} />
@@ -708,7 +708,7 @@ import config from "../../config";
 import "./PostingForm.css";
 
 const PostingForm = (props) => {
-  const { onPostAdd = () => {} } = props;
+  const { onPostAd = () => {} } = props;
 -  const formRef = useRef(null);
 +  const [form] = Form.useForm();
 
@@ -728,7 +728,7 @@ const PostingForm = (props) => {
     })
       .then((res) => res.json())
       .then((response) => {
-        onPostAdd();
+        onPostAd();
 -       formRef.current.reset();
 +       form.resetFields();
       })
