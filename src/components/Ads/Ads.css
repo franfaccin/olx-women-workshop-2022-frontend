@@ -7,3 +7,13 @@
 .list__ads > li {
   margin-bottom: 16px;
 }
+
+.img__ad-card {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+}
+
+.dropdown__sort {
+  margin: 16px 0;
+}
